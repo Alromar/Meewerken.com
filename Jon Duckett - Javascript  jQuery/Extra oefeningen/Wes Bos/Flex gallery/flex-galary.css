@@ -1,0 +1,96 @@
+html {
+    box-sizing: border-box;
+    background: #ffc600;
+    font-family: 'helvetica neue';
+    font-size: 20px;
+    font-weight: 200;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+   /* 1: Panels zij aan zij */
+  .panels {
+    min-height: 100vh;
+    overflow: hidden;
+    /* 1 */display: flex;
+  }
+/* 2: ruimte verdelene over de panels */
+  .panel {
+    background: #6B0F9C;
+    box-shadow: inset 0 0 0 5px rgba(255,255,255,0.1);
+    color: white;
+    text-align: center;
+    align-items: center;
+    /* Safari transitionend event.propertyName === flex */
+    /* Chrome + FF transitionend event.propertyName === flex-grow */
+    transition:
+      font-size 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+      flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+      background 0.2s;
+    font-size: 20px;
+    background-size: cover;
+    background-position: center;
+    /* 2: */flex: 1;
+    /* 4:tekst verticaal in het midden  */
+    /* 4: */justify-content: center; 
+     /*4:  */align-items: center;
+     /*4:  */ display: flex;
+    /* 4: */flex-direction: column; 
+
+  }
+
+  .panel1 { background-image:url(https://picsum.photos/1500/1500); }
+  .panel2 { background-image:url(https://source.unsplash.com/rFKUFzjPYiQ/1500x1500); }
+  .panel3 { background-image:url(https://images.unsplash.com/photo-1465188162913-8fb5709d6d57?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&w=1500&h=1500&fit=crop&s=967e8a713a4e395260793fc8c802901d); }
+  .panel4 { background-image:url(https://source.unsplash.com/ITjiVXcwVng/1500x1500); }
+  .panel5 { background-image:url(https://source.unsplash.com/3MNzGlQM7qs/1500x1500); }
+
+  /* Flex Children */
+ 
+  .panel > * {
+    margin: 0;
+    width: 100%;
+    transition: transform 0.5s;
+    /* 3: border om tekstblokken */
+    /* 7: border weg */
+    /* border: 1px solid red; */
+
+    /* 5: secties met rode border verdelen over panel */
+    /* 5: verdeel de p-tags evenredig over de hele panel  */flex: 1 0 auto; 
+    /* 5: de tekst verschijnt links naar rechts */ display: flex; 
+    /* 5: tekst boven in het midden*/ justify-content: center;
+    /* 5: tekst ook verticaal in het midden*/ align-items: center; 
+  }
+
+  /* 6: de kopjes onderaan en bovenaan buiten beeld laten verdwijnen */
+  .panel > *:first-child {transform: translateY(-100%);}
+  /* chrome dev tools vinke transform .panel > *:first-child tekst verschijnt weer */
+  /* met een class van open-active verschijnt de tekst weer */
+  .panel.open-active> *:first-child {transform: translateY(0);}
+  .panel > *:last-child {transform: translateY(100%);}
+  /* chrome dev tools vinke transform .panel > *:last-child tekst verschijnt weer*/
+/* met een class van open-active verschijnt de tekst weer */
+  .panel.open-active > *:last-child {transform: translateY(0);}
+
+  .panel p {
+    text-transform: uppercase;
+    font-family: 'Amatic SC', cursive;
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
+    font-size: 2em;
+  }
+
+  .panel p:nth-child(2) {
+    font-size: 4em;
+  }
+
+  .panel.open {
+    font-size: 40px;
+    /* 8: als het panel wordt geopend flex:5  voor 9 zie javascript*/
+    flex: 5;
+  }

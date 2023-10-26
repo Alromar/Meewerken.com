@@ -1,0 +1,3 @@
+Zwoel, elegant:  'Open Sans', sans-serif;
+
+Formeel, schoolbord: Wellfleet, times, serif;

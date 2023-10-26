@@ -1,0 +1,98 @@
+
+html {
+    background: #018DED url(http://unsplash.it/1500/1000?image=881&blur=50);
+    background-size: cover;
+    font-family: 'helvetica neue';
+    text-align: center;
+    font-size: 10px;
+}
+
+body {
+    font-size: 2rem;
+    display: flex;
+    flex: 1;
+    min-height: 100vh;
+    align-items: center;
+}
+
+.clock {
+    width: 30rem;   
+    height: 30rem;
+    border: 20px solid white;
+    border-radius: 50%;
+    margin: 50px auto;
+    position: relative;
+}
+
+.hand   {
+    width: 50%;
+    height: 6px;
+    background: black;
+    position: absolute;
+    top: 50%;
+    /* de prop "transform: rotate(deg)" werkt nog niet(as is in het midden in het midden klok bij rotatie ipv bij rechteruiteinde  
+    transform: rotate(45deg); 
+    Gebruik transform-origin:*/
+    /* standaard 50% = as in het midden element */
+    transform-origin: 100%;  
+    /* wijzers standaar niet verticaal op 12u. Daarom transform als default: */
+    transform: rotate(90deg);
+    transition: all 0.5s;
+    /* voeg effect toe met transition-timing-function */
+}
+
+.minute-hand {
+    width: 50%;
+    height: 6px;
+    background: black;
+    position: absolute;
+    top: 50%;
+    /* de prop "transform: rotate(deg)" werkt nog niet(as is in het midden in het midden klok bij rotatie ipv bij rechteruiteinde  
+    transform: rotate(45deg); 
+    Gebruik transform-origin:*/
+    /* standaard 50% = as in het midden element */
+    transform-origin: 100%;  
+    /* wijzers standaar niet verticaal op 12u. Daarom transform als default: */
+    transform: rotate(90deg);
+    transition: all 0.5s;
+    /* voeg effect toe met transition-timing-function */
+}
+
+.second-hand {
+    width: 50%;
+    height: 6px;
+    background: black;
+    position: absolute;
+    top: 50%;
+    /* de prop "transform: rotate(deg)" werkt nog niet(as is in het midden in het midden klok bij rotatie ipv bij rechteruiteinde  
+    transform: rotate(45deg); 
+    Gebruik transform-origin:*/
+    /* standaard 50% = as in het midden element */
+    transform-origin: 100%;  
+    /* wijzers standaar niet verticaal op 12u. Daarom transform als default: */
+    transform: rotate(90deg);
+    transition: all 0.05s;
+    /* voeg effect toe met transition-timing-function: ease-in -> checkbox cubic-bezier */
+    /* secondewijzer tikt terug tikken terug */
+    transition-timing-function: cubic-bezier(0, 2.92, 1, 1);
+
+}
+
+.hour-hand {
+    width: 50%;
+    height: 6px;
+    background: black;
+    position: absolute;
+    top: 50%;
+    /* de prop "transform: rotate(deg)" werkt nog niet(as is in het midden in het midden klok bij rotatie ipv bij rechteruiteinde  
+    transform: rotate(45deg); 
+    Gebruik transform-origin:*/
+    /* standaard 50% = as in het midden element */
+    transform-origin: 100%;  
+    /* wijzers standaar niet verticaal op 12u. Daarom transform als default: */
+    transform: rotate(90deg);
+    transition: all 0.05s;
+    /* voeg effect toe met transition-timing-function: ease-in -> checkbox cubic-bezier */
+    /* secondewijzer tikt terug tikken terug */
+    transition-timing-function: cubic-bezier(0, 2.92, 1, 1);
+}

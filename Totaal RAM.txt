@@ -1,0 +1,5 @@
+Totaal RAM:
+
+C:\Users\Alex Markus>wmic memphysical get MaxCapacity, MemoryDevices
+MaxCapacity  MemoryDevices
+33554432     2

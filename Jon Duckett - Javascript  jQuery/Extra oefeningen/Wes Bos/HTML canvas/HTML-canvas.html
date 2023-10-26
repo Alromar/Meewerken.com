@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML-canvas</title>
+</head>
+
+<body>
+    <!-- 1: canvas element toevoegen met id, width en height -->
+    <canvas id="draw" width="800" height="800"></canvas>
+    <script>
+        //3: in canvas teken je niet in het canvas-html-el direct, maar op de context(getContext) 
+        //getContext kan in 2d of 3d
+        const canvas = document.querySelector('#draw');
+        const ctx = canvas.getContext('2d');
+        //4: canvas size vergroten naar windows.width
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        //check google console of canvas size === windowsize;
+
+        //5: 
+        // ctx.strokeStyle = '#BADA55';
+
+        //shape end of line
+        ctx.lineJoin = "round";
+        ctx.lineCap = "round";
+        ctx.lineWidth = 100;
+
+        //16: kleureffect
+        //https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Compositing/Example
+        ctx.globalCompositeOperation = 'multiply';
+//         const gco = [
+//   "source-over",
+//   "source-in",
+//   "source-out",
+//   "source-atop",
+//   "destination-over",
+//   "destination-in",
+//   "destination-out",
+//   "destination-atop",
+//   "lighter",
+//   "copy",
+//   "xor",
+//   "multiply",
+//   "screen",
+//   "overlay",
+//   "darken",
+//   "lighten",
+//   "color-dodge",
+//   "color-burn",
+//   "hard-light",
+//   "soft-light",
+//   "difference",
+//   "exclusion",
+//   "hue",
+//   "saturation",
+//   "color",
+//   "luminosity",
+//         //dummy variables/flags
+        let isDrawing = false;
+
+        //6: Startpunt en eindpunt
+        let lastX = 0;
+        let lastY = 0;
+        //11: hsl 
+        let hue = 0;
+        let direction = true;
+        ctx.lineWidth = hue;
+        //7: draw function met event en eventListener
+        function draw(e) {
+            if (!isDrawing) return; //8: stop functie als de muisknop niet ingedrukt is en er gehoverd wordt
+            console.log(e);
+            //12: strokestyle
+            ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
+            //tekenpad beginnen 9:
+            ctx.beginPath();
+            ctx.moveTo(lastX, lastY);
+            ctx.lineTo(e.offsetX, e.offsetY);
+            ctx.stroke();
+            //10: update lastX en lastY nadat de lijn getekend is
+            //vanilla.js:
+            //ES6 destructering an array:
+            [lastX, lastY] = [e.offsetX, e.offsetY];
+            //14: iterator hue
+            hue++;
+            if (hue >= 360) {
+                hue = 0;
+            }
+            //15: function kleurenlijn verdikken en van richting veranderen
+            if (ctx.lineWidth >= 100 || ctx.lineWidth <= 1) {
+                direction = !direction;
+            }
+            if (direction) {
+                ctx.lineWidth++;
+            } else {
+                ctx.lineWidth--;
+            }
+        }
+
+        //11: voordat de muis beweegt, bij mousedown de waarde van 'lastX en ,-Y aanpassen 
+        canvas.addEventListener('mousedown', (e) => {
+            isDrawing = true;
+            [lastX, lastY] = [e.offsetX, e.offsetY];
+        });
+
+        canvas.addEventListener('mousemove', draw);
+        //8:eventlisener mousedown, mouseup, mouseout om alleen te tekenen als de muis gesleept wordt
+        canvas.addEventListener('mouseup', () => isDrawing = false);
+        canvas.addEventListener('mouseout', () => isDrawing = false);
+    </script>
+    <style>
+        /* 2: canvas element vrij houden van auto margin browser */
+        html,
+        body {
+            margin: 0;
+        }
+    </style>
+</body>
+</htm>

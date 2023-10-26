@@ -1,0 +1,3 @@
+- Fallback commands event listeners Opera, Safari FireFox en Chrome
+
+- VSCODE shortcode tag om code, carrot einde regel kopiëren

@@ -1,0 +1,67 @@
+CTRL + A -> Shift + Alt + F : reformat code;
+
+Alt + B = open in st. browser 
+
+Alt + Shift + B = open in gekozen browser;
+
+Ctrl + N = nieuw bestand 
+
+Ctrl + Shift + ` = Terminal;
+
+to next line: 'END';
+
+open with Live Server: ALT + L -> ALT + O;
+
+copy line: Shift + Alt + Arrow down
+
+
+
+
+Emmet:
+
+shortcodes:     
+            data atrribute = [data]
+
+GIT: 
+
+map opslaan naar github 
+1. github repo creeren
+2. bash openen in root
+3. command: 'git init -b main'
+4. cmd: 'git remote add origin 'url repo'
+5. check url: 'git remote -v'
+6. git add . 
+7. git commit -m 'omschrijving'
+8. git push -u origin main
+
+git andere pc 1e keer inloggen voor saven: 
+
+
+-ga met CLI naar rootdirectory waarin de repo moet komen
+-git clone 'url https van repo'
+- cd 'map repo'
+
+-git config --global user.email 'email';
+-git config --global user.name 'username Github'
+- git add .
+- git commit -m "titel"
+- git push -u origin main
+
+BASH: 
+
+Stop error = CTRL + C
+
+nieuwe url remote repo : git remote set-url origin 'url';
+
+git start niet fout:    - cli 'git init';
+                        - git remote set-url origin 'url'
+                        - git branch -M main
+                        - git push -u origin main 
+
+git toevoegen repo:     - git add .
+                        - git commit -m "titel"
+                        - git push -u origin main
+
+
+
+
